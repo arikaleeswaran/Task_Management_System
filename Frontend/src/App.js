@@ -13,7 +13,7 @@ function App() {
 
   const getdata = async()=>{
   try{
-    const res = await fetch("http://localhost:5000");
+    const res = await fetch("https://task-management-system-api-five.vercel.app/");
     if(!res.ok){
       throw new Error("failed to fetch data");
     }
@@ -28,7 +28,7 @@ function App() {
     e.preventDefault();
     const datapost = async()=>{
       try{
-        const res = await fetch("http://localhost:5000",{method:"POST",headers:{'Content-Type': 'application/json'},body:JSON.stringify({title:newItem})});
+        const res = await fetch("https://task-management-system-api-five.vercel.app",{method:"POST",headers:{'Content-Type': 'application/json'},body:JSON.stringify({title:newItem})});
         if(!res.ok){
           throw new Error("Failed to post data!");
         }
@@ -53,7 +53,7 @@ function App() {
           }
           return todo
         })})
-        const response = await fetch(`http://localhost:5000/${id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:title,completed:completed})})
+        const response = await fetch(`https://task-management-system-api-five.vercel.app/${id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:title,completed:completed})})
        //window.location='/';
       //  setTask(currentTodos=>{
       //   return currentTodos;
@@ -69,7 +69,7 @@ function App() {
   const deleteTodo = async(id)=>{
     try{
       console.log(id);
-        const det = await fetch(`http://localhost:5000/${id}`,{
+        const det = await fetch(`https://task-management-system-api-five.vercel.app/${id}`,{
           method:"DELETE"
         });
         if(!det.ok){
